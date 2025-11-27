@@ -21,17 +21,22 @@ export default function Hero() {
         { opacity: 1, y: 0, duration: 1, ease: "power3.out", delay: 0.2 }
       );
 
-      // Parallax Effect
-      gsap.to(contentRef.current, {
-        y: "50%",
-        ease: "none",
-        scrollTrigger: {
-          trigger: containerRef.current,
-          start: "top top",
-          end: "bottom top",
-          scrub: true,
-        },
-      });
+      // Parallax Effect - immediateRender: false prevents overriding entrance animation
+      gsap.fromTo(
+        contentRef.current,
+        { y: 0 },
+        {
+          y: "50%",
+          ease: "none",
+          immediateRender: false,
+          scrollTrigger: {
+            trigger: containerRef.current,
+            start: "top top",
+            end: "bottom top",
+            scrub: true,
+          },
+        }
+      );
     }, containerRef);
 
     return () => ctx.revert();
@@ -39,6 +44,20 @@ export default function Hero() {
 
   return (
     <section ref={containerRef} className={styles.hero}>
+      <div className={styles.videoBackground}>
+        <video
+          autoPlay
+          muted
+          loop
+          playsInline
+          className={styles.video}
+          poster="/video-poster.jpg" // Optional poster
+        >
+          <source src="/hero.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+        <div className={styles.overlay}></div>
+      </div>
       <div ref={contentRef} className={styles.content}>
         <h1 className={styles.title}>
           디지털 경험을<br /> 디자인합니다
