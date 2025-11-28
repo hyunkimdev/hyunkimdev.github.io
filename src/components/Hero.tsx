@@ -1,16 +1,59 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import styles from "./Hero.module.css";
 
 gsap.registerPlugin(ScrollTrigger);
 
+const words = [
+  "홈페이지",
+  "웹 어플리케이션",
+  "모바일 앱",
+  "대시보드",
+  "랜딩 페이지",
+  "이커머스",
+  "포트폴리오",
+];
+
 export default function Hero() {
   const containerRef = useRef(null);
   const contentRef = useRef(null);
+  const [currentWord, setCurrentWord] = useState("");
+  const [wordIndex, setWordIndex] = useState(0);
+  const [isDeleting, setIsDeleting] = useState(false);
+
+  // 타이핑 효과
+  useEffect(() => {
+    const word = words[wordIndex];
+    const typingSpeed = isDeleting ? 50 : 100;
+    const pauseTime = isDeleting ? 100 : 2000;
+
+    if (!isDeleting && currentWord === word) {
+      // 단어 완성 후 대기
+      const timeout = setTimeout(() => setIsDeleting(true), pauseTime);
+      return () => clearTimeout(timeout);
+    }
+
+    if (isDeleting && currentWord === "") {
+      // 삭제 완료 후 다음 단어로
+      setIsDeleting(false);
+      setWordIndex((prev) => (prev + 1) % words.length);
+      return;
+    }
+
+    const timeout = setTimeout(() => {
+      setCurrentWord((prev) =>
+        isDeleting
+          ? prev.slice(0, -1)
+          : word.slice(0, prev.length + 1)
+      );
+    }, typingSpeed);
+
+    return () => clearTimeout(timeout);
+  }, [currentWord, isDeleting, wordIndex]);
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -51,7 +94,7 @@ export default function Hero() {
           loop
           playsInline
           className={styles.video}
-          poster="/video-poster.jpg" // Optional poster
+          poster="/video-poster.jpg"
         >
           <source src="/hero.mp4" type="video/mp4" />
           Your browser does not support the video tag.
@@ -60,11 +103,15 @@ export default function Hero() {
       </div>
       <div ref={contentRef} className={styles.content}>
         <h1 className={styles.title}>
-          디지털 경험을<br /> 디자인합니다
+          <span className={styles.typingWrapper}>
+            <span className={styles.typingText}>{currentWord}</span>
+            <span className={styles.cursor}>|</span>
+          </span>
+          <br />
+          만드는 개발자 김현입니다.
         </h1>
         <p className={styles.subtitle}>
-          사용자 중심의 사고와 견고한 기술력으로<br />
-          최상의 웹 경험을 만드는 풀스택 개발자입니다.
+          아이디어를 현실로 만들어드립니다.
         </p>
         <div className={styles.actions}>
           <Link href="#projects" className={`${styles.button} ${styles.primary}`}>
