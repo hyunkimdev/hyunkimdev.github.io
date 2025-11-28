@@ -82,6 +82,11 @@
     margin-bottom: var(--spacing-md);
 }
 
+.location {
+    color: var(--secondary-foreground);
+    font-weight: 400;
+}
+
 .description {
     font-size: 0.95rem;
     color: var(--secondary-foreground);
