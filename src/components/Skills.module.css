@@ -1,100 +1,44 @@
 .section {
     padding: var(--spacing-2xl) 0;
     background: var(--background);
+    overflow: hidden;
 }
 
 .title {
     font-size: 2.5rem;
-    margin-bottom: var(--spacing-xl);
+    margin-bottom: var(--spacing-sm);
     text-align: center;
     color: var(--foreground);
     font-weight: 300;
     letter-spacing: 0.1em;
 }
 
-.grid {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: var(--spacing-md);
-    max-width: 1000px;
-    margin: 0 auto;
-}
-
-.card {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: var(--spacing-sm);
-    width: 100px;
-    height: 100px;
-    background: var(--secondary);
-    border-radius: var(--radius-lg);
-    border: 1px solid var(--border);
-    transition: all 0.3s ease;
-    cursor: default;
-}
-
-.card:hover {
-    transform: translateY(-5px);
-    border-color: var(--primary);
-    box-shadow: 0 10px 30px rgba(59, 130, 246, 0.15);
-}
-
-.iconWrapper {
-    width: 48px;
-    height: 48px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.icon {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-}
-
-.icon.invert {
-    filter: invert(1);
-}
-
-.name {
-    font-size: 0.75rem;
-    color: var(--secondary-foreground);
+.subtitle {
     text-align: center;
-    font-weight: 500;
+    color: var(--secondary-foreground);
+    font-size: 0.9rem;
+    margin-bottom: var(--spacing-lg);
+}
+
+.canvas {
+    width: 100%;
+    height: 400px;
+    cursor: grab;
+    touch-action: none;
+}
+
+.canvas:active {
+    cursor: grabbing;
 }
 
 @media (min-width: 768px) {
-    .card {
-        width: 120px;
-        height: 120px;
-    }
-
-    .iconWrapper {
-        width: 56px;
-        height: 56px;
-    }
-
-    .name {
-        font-size: 0.85rem;
+    .canvas {
+        height: 500px;
     }
 }
 
 @media (min-width: 1024px) {
-    .grid {
-        gap: var(--spacing-lg);
-    }
-
-    .card {
-        width: 130px;
-        height: 130px;
-    }
-
-    .iconWrapper {
-        width: 64px;
-        height: 64px;
+    .canvas {
+        height: 600px;
     }
 }
