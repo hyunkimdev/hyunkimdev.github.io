@@ -5,7 +5,7 @@ export default function Footer() {
     <footer className={styles.footer}>
       <div className={`container ${styles.content}`}>
         <p className={styles.copyright}>
-          © {new Date().getFullYear()} Full-Stack Developer. All rights reserved.
+          © 2025 Hyun Kim. All rights reserved.
         </p>
         <div className={styles.socials}>
           <a href="#" target="_blank" rel="noopener noreferrer" className={styles.socialLink}>

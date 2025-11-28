@@ -48,17 +48,37 @@ function Paragraph({ children }: { children: string }) {
 
 export default function About() {
   const sectionRef = useRef(null);
-  const contentRef = useRef(null);
+  const textRef = useRef(null);
+  const imageRef = useRef(null);
 
   useEffect(() => {
     const ctx = gsap.context(() => {
+      // 텍스트 컬럼: 왼쪽에서 오른쪽으로 등장
       gsap.fromTo(
-        contentRef.current,
-        { opacity: 0, y: 50 },
+        textRef.current,
+        { opacity: 0, x: -100 },
         {
           opacity: 1,
-          y: 0,
-          duration: 1,
+          x: 0,
+          duration: 1.2,
+          ease: "power3.out",
+          scrollTrigger: {
+            trigger: sectionRef.current,
+            start: "top 70%",
+            toggleActions: "play reverse play reverse",
+          },
+        }
+      );
+
+      // 이미지 컬럼: 오른쪽에서 왼쪽으로 등장
+      gsap.fromTo(
+        imageRef.current,
+        { opacity: 0, x: 100 },
+        {
+          opacity: 1,
+          x: 0,
+          duration: 1.2,
+          ease: "power3.out",
           scrollTrigger: {
             trigger: sectionRef.current,
             start: "top 70%",
@@ -73,8 +93,8 @@ export default function About() {
 
   return (
     <section id="about" className={styles.section} ref={sectionRef}>
-      <div className={`container ${styles.content}`} ref={contentRef}>
-        <div className={styles.textColumn}>
+      <div className={`container ${styles.content}`}>
+        <div className={styles.textColumn} ref={textRef}>
           <h2 className={styles.title}>소개</h2>
           <Paragraph>
             5년 전, 웹이 작동하는 방식에 대한 호기심으로 개발을 시작했습니다.
@@ -85,7 +105,7 @@ export default function About() {
             코딩하지 않을 때는 오픈 소스에 기여하거나 최신 기술 트렌드를 탐구하곤 합니다.
           </Paragraph>
         </div>
-        <div className={styles.imageColumn}>
+        <div className={styles.imageColumn} ref={imageRef}>
           <div className={styles.imageWrapper}>
             <Image
               src="/profile.png"

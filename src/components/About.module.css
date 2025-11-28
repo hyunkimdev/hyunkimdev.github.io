@@ -1,6 +1,7 @@
 .section {
     padding: var(--spacing-2xl) 0;
     background: var(--background);
+    overflow: hidden;
 }
 
 .content {
