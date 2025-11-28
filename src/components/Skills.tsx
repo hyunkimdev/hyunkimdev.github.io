@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef } from "react";
+import Image from "next/image";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import styles from "./Skills.module.css";
@@ -8,53 +9,46 @@ import styles from "./Skills.module.css";
 gsap.registerPlugin(ScrollTrigger);
 
 const skills = [
-  {
-    category: "프론트엔드",
-    items: ["React", "Next.js", "TypeScript", "Tailwind CSS", "Framer Motion", "Three.js"],
-  },
-  {
-    category: "백엔드",
-    items: ["Node.js", "Express", "PostgreSQL", "Prisma", "GraphQL", "Redis"],
-  },
-  {
-    category: "데브옵스",
-    items: ["Docker", "AWS", "CI/CD", "Vercel", "Nginx"],
-  },
-  {
-    category: "도구",
-    items: ["Git", "Figma", "Jest", "Cypress", "Postman"],
-  },
+  { name: "Python", icon: "python" },
+  { name: "JavaScript", icon: "javascript" },
+  { name: "TypeScript", icon: "typescript" },
+  { name: "Java", icon: "java" },
+  { name: "React", icon: "react" },
+  { name: "Next.js", icon: "nextjs", invert: true },
+  { name: "Vue.js", icon: "vuejs" },
+  { name: "Node.js", icon: "nodejs" },
+  { name: "FastAPI", icon: "fastapi" },
+  { name: "PostgreSQL", icon: "postgresql" },
+  { name: "MySQL", icon: "mysql" },
+  { name: "MongoDB", icon: "mongodb" },
+  { name: "Redis", icon: "redis" },
+  { name: "AWS", icon: "amazonwebservices", original: true },
+  { name: "Docker", icon: "docker" },
+  { name: "Nginx", icon: "nginx" },
+  { name: "Git", icon: "git" },
+  { name: "Figma", icon: "figma" },
 ];
 
 export default function Skills() {
   const sectionRef = useRef(null);
-  const containerRef = useRef(null);
-  const categoriesRef = useRef<HTMLDivElement[]>([]);
+  const cardsRef = useRef<HTMLDivElement[]>([]);
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-      // Sticky Title Animation
-      ScrollTrigger.create({
-        trigger: sectionRef.current,
-        start: "top top",
-        end: "bottom bottom",
-        pin: `.${styles.stickyTitle}`,
-        pinSpacing: false,
-      });
-
-      // Staggered Reveal
-      categoriesRef.current.forEach((el, index) => {
+      cardsRef.current.forEach((el, index) => {
         gsap.fromTo(
           el,
-          { opacity: 0, x: 50 },
+          { opacity: 0, y: 30, scale: 0.9 },
           {
             opacity: 1,
-            x: 0,
-            duration: 0.8,
+            y: 0,
+            scale: 1,
+            duration: 0.5,
+            delay: index * 0.05,
             ease: "power3.out",
             scrollTrigger: {
-              trigger: el,
-              start: "top 80%",
+              trigger: sectionRef.current,
+              start: "top 70%",
               toggleActions: "play reverse play reverse",
             },
           }
@@ -67,35 +61,29 @@ export default function Skills() {
 
   return (
     <section id="skills" className={styles.section} ref={sectionRef}>
-      <div className="container" ref={containerRef}>
-        <div className={styles.stickyWrapper}>
-          <div className={styles.stickyTitle}>
-            <h2 className={styles.title}>기술 스택</h2>
-            <p className={styles.description}>
-              끊임없이 변화하는 기술 트렌드에 맞춰<br />
-              최적의 도구를 선택하고 학습합니다.
-            </p>
-          </div>
-          <div className={styles.grid}>
-            {skills.map((skillGroup, index) => (
-              <div 
-                key={skillGroup.category} 
-                className={styles.category}
-                ref={(el) => {
-                  if (el) categoriesRef.current[index] = el;
-                }}
-              >
-                <h3 className={styles.categoryTitle}>{skillGroup.category}</h3>
-                <ul className={styles.list}>
-                  {skillGroup.items.map((item) => (
-                    <li key={item} className={styles.item}>
-                      {item}
-                    </li>
-                  ))}
-                </ul>
+      <div className="container">
+        <h2 className={styles.title}>Technologies</h2>
+        <div className={styles.grid}>
+          {skills.map((skill, index) => (
+            <div
+              key={skill.name}
+              className={styles.card}
+              ref={(el) => {
+                if (el) cardsRef.current[index] = el;
+              }}
+            >
+              <div className={styles.iconWrapper}>
+                <Image
+                  src={`https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/${skill.icon}/${skill.icon}-${skill.original ? "original-wordmark" : "original"}.svg`}
+                  alt={skill.name}
+                  width={48}
+                  height={48}
+                  className={`${styles.icon} ${skill.invert ? styles.invert : ""}`}
+                />
               </div>
-            ))}
-          </div>
+              <span className={styles.name}>{skill.name}</span>
+            </div>
+          ))}
         </div>
       </div>
     </section>
