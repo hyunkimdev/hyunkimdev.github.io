@@ -4,41 +4,161 @@
     overflow: hidden;
 }
 
+.container {
+    width: 100%;
+    max-width: 100vw;
+}
+
 .title {
     font-size: 2.5rem;
-    margin-bottom: var(--spacing-sm);
+    margin-bottom: var(--spacing-2xl);
     text-align: center;
     color: var(--foreground);
     font-weight: 300;
     letter-spacing: 0.1em;
 }
 
-.subtitle {
-    text-align: center;
-    color: var(--secondary-foreground);
-    font-size: 0.9rem;
-    margin-bottom: var(--spacing-lg);
+.marqueeWrapper {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-xl);
+    position: relative;
 }
 
-.canvas {
+/* 그라데이션 마스크: 양쪽 끝을 흐릿하게 하여 자연스럽게 사라지는 효과 */
+.marqueeWrapper::before,
+.marqueeWrapper::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 100px;
+    z-index: 2;
+    pointer-events: none;
+}
+
+.marqueeWrapper::before {
+    left: 0;
+    background: linear-gradient(to right, var(--background), transparent);
+}
+
+.marqueeWrapper::after {
+    right: 0;
+    background: linear-gradient(to left, var(--background), transparent);
+}
+
+.marqueeContainer {
+    display: flex;
+    overflow: hidden;
     width: 100%;
-    height: 400px;
-    cursor: grab;
-    touch-action: none;
+    /* 호버 시 애니메이션 멈춤 */
 }
 
-.canvas:active {
-    cursor: grabbing;
+.marqueeContainer:hover .marquee {
+    animation-play-state: paused;
 }
 
-@media (min-width: 768px) {
-    .canvas {
-        height: 500px;
+.marquee {
+    display: flex;
+    gap: var(--spacing-lg);
+    padding-left: var(--spacing-lg);
+    /* 하드웨어 가속 활성화 */
+    transform: translate3d(0, 0, 0);
+    will-change: transform;
+}
+
+.marqueeLeft {
+    animation: scrollLeft 40s linear infinite;
+}
+
+.marqueeRight {
+    animation: scrollRight 40s linear infinite;
+}
+
+@keyframes scrollLeft {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-50%);
     }
 }
 
-@media (min-width: 1024px) {
-    .canvas {
-        height: 600px;
+@keyframes scrollRight {
+    0% {
+        transform: translateX(-50%);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+
+.card {
+    flex: 0 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: var(--spacing-sm);
+    width: 120px;
+    height: 120px;
+    background: var(--secondary);
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--border);
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.card:hover {
+    transform: scale(1.1);
+    border-color: var(--primary);
+    box-shadow: 0 10px 30px rgba(59, 130, 246, 0.2);
+    background: rgba(30, 41, 59, 0.8);
+    z-index: 10;
+}
+
+.iconWrapper {
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.icon {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.icon.invert {
+    filter: invert(1);
+}
+
+.name {
+    font-size: 0.85rem;
+    color: var(--secondary-foreground);
+    text-align: center;
+    font-weight: 500;
+}
+
+@media (min-width: 768px) {
+    .card {
+        width: 140px;
+        height: 140px;
+    }
+
+    .iconWrapper {
+        width: 64px;
+        height: 64px;
+    }
+
+    .name {
+        font-size: 1rem;
+    }
+    
+    .marqueeWrapper::before,
+    .marqueeWrapper::after {
+        width: 200px;
     }
 }
