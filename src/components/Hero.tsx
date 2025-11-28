@@ -13,9 +13,7 @@ const words = [
   "웹 어플리케이션",
   "모바일 앱",
   "대시보드",
-  "랜딩 페이지",
-  "이커머스",
-  "포트폴리오",
+  "랜딩 페이지"
 ];
 
 export default function Hero() {
@@ -111,7 +109,7 @@ export default function Hero() {
           만드는 개발자 김현입니다.
         </h1>
         <p className={styles.subtitle}>
-          아이디어를 현실로 만들어드립니다.
+          비즈니스 아이디어를 현실로 만들어드립니다.
         </p>
         <div className={styles.actions}>
           <Link href="#projects" className={`${styles.button} ${styles.primary}`}>
