@@ -58,6 +58,9 @@ export default function Header() {
           <Link href="#skills" className={styles.link}>
             기술 스택
           </Link>
+          <Link href="#experience" className={styles.link}>
+            이력
+          </Link>
           <Link href="#projects" className={styles.link}>
             프로젝트
           </Link>

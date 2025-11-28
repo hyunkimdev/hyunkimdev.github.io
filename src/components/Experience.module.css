@@ -1,0 +1,116 @@
+.section {
+    padding: var(--spacing-2xl) 0;
+    background: var(--background);
+}
+
+.title {
+    font-size: 2.5rem;
+    margin-bottom: var(--spacing-xl);
+    color: var(--foreground);
+    text-align: center;
+}
+
+.timeline {
+    position: relative;
+    max-width: 800px;
+    margin: 0 auto;
+    padding-left: 40px;
+}
+
+.timeline::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: linear-gradient(to bottom, var(--primary), var(--accent));
+}
+
+.item {
+    position: relative;
+    padding-bottom: var(--spacing-xl);
+}
+
+.item:last-child {
+    padding-bottom: 0;
+}
+
+.marker {
+    position: absolute;
+    left: -44px;
+    top: 8px;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: var(--primary);
+    border: 2px solid var(--background);
+    box-shadow: 0 0 0 4px var(--primary);
+}
+
+.content {
+    background: var(--secondary);
+    padding: var(--spacing-lg);
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--border);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.content:hover {
+    transform: translateX(8px);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+}
+
+.period {
+    display: inline-block;
+    font-size: 0.85rem;
+    color: var(--primary);
+    font-weight: 600;
+    margin-bottom: var(--spacing-sm);
+}
+
+.role {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--foreground);
+    margin-bottom: var(--spacing-xs);
+}
+
+.company {
+    font-size: 1rem;
+    color: var(--accent);
+    margin-bottom: var(--spacing-md);
+}
+
+.description {
+    font-size: 0.95rem;
+    color: var(--secondary-foreground);
+    line-height: 1.6;
+    margin-bottom: var(--spacing-md);
+}
+
+.skills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-sm);
+}
+
+.skill {
+    font-size: 0.75rem;
+    padding: 4px 10px;
+    background: rgba(59, 130, 246, 0.1);
+    color: var(--primary);
+    border-radius: var(--radius-full);
+    border: 1px solid rgba(59, 130, 246, 0.2);
+}
+
+@media (min-width: 768px) {
+    .timeline {
+        padding-left: 60px;
+    }
+
+    .marker {
+        left: -64px;
+    }
+}
+
