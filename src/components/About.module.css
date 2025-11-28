@@ -40,6 +40,26 @@
     font-weight: 600;
 }
 
+.imageColumn {
+    display: flex;
+    justify-content: center;
+}
+
+.imageWrapper {
+    width: 100%;
+    max-width: 400px;
+    aspect-ratio: 1;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    background: var(--secondary);
+}
+
+.profileImage {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
 @media (min-width: 768px) {
     .content {
         grid-template-columns: 1fr 1fr;

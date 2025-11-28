@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef } from "react";
+import Image from "next/image";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import styles from "./About.module.css";
@@ -85,18 +86,15 @@ export default function About() {
           </Paragraph>
         </div>
         <div className={styles.imageColumn}>
-          {/* Placeholder for an image or a creative graphic */}
-          <div style={{ 
-            width: '100%', 
-            height: '400px', 
-            background: 'var(--secondary)', 
-            borderRadius: 'var(--radius-lg)',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            color: 'var(--secondary-foreground)'
-          }}>
-            [프로필 이미지 / 그래픽]
+          <div className={styles.imageWrapper}>
+            <Image
+              src="/profile.png"
+              alt="프로필 이미지"
+              width={400}
+              height={400}
+              className={styles.profileImage}
+              priority
+            />
           </div>
         </div>
       </div>
