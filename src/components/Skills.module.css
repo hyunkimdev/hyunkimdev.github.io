@@ -14,15 +14,18 @@
     margin-bottom: var(--spacing-2xl);
     text-align: center;
     color: var(--foreground);
-    font-weight: 300;
-    letter-spacing: 0.1em;
+    font-weight: 700;
+    letter-spacing: -0.02em;
 }
 
 .marqueeWrapper {
     display: flex;
     flex-direction: column;
-    gap: var(--spacing-xl);
+    gap: var(--spacing-lg);
     position: relative;
+    overflow-x: hidden;
+    overflow-y: visible;
+    padding: var(--spacing-md) 0;
 }
 
 /* 그라데이션 마스크: 양쪽 끝을 흐릿하게 하여 자연스럽게 사라지는 효과 */
@@ -49,9 +52,9 @@
 
 .marqueeContainer {
     display: flex;
-    overflow: hidden;
     width: 100%;
     /* 호버 시 애니메이션 멈춤 */
+    padding: var(--spacing-md) 0;
 }
 
 .marqueeContainer:hover .marquee {

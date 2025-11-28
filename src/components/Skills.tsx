@@ -11,18 +11,14 @@ const skills = [
   { name: "Java", icon: "java" },
   { name: "React", icon: "react" },
   { name: "Next.js", icon: "nextjs", invert: true },
-  { name: "Vue.js", icon: "vuejs" },
   { name: "Node.js", icon: "nodejs" },
   { name: "FastAPI", icon: "fastapi" },
   { name: "PostgreSQL", icon: "postgresql" },
   { name: "MySQL", icon: "mysql" },
   { name: "MongoDB", icon: "mongodb" },
-  { name: "Redis", icon: "redis" },
   { name: "AWS", icon: "amazonwebservices", original: true },
   { name: "Docker", icon: "docker" },
-  { name: "Nginx", icon: "nginx" },
   { name: "Git", icon: "git" },
-  { name: "Figma", icon: "figma" },
 ];
 
 // 데이터를 두 줄로 분리
@@ -34,7 +30,7 @@ export default function Skills() {
   return (
     <section id="skills" className={styles.section}>
       <div className={styles.container}>
-        <h2 className={styles.title}>Technologies</h2>
+        <h2 className={styles.title}>기술 스택</h2>
         
         <div className={styles.marqueeWrapper}>
           {/* 첫 번째 줄 - 왼쪽으로 이동 */}
