@@ -26,6 +26,7 @@ function Paragraph({ children }: { children: string }) {
           start: "top 80%",
           end: "bottom 60%",
           scrub: true,
+          toggleActions: "play reverse play reverse",
         },
       }
     );
@@ -60,6 +61,7 @@ export default function About() {
           scrollTrigger: {
             trigger: sectionRef.current,
             start: "top 70%",
+            toggleActions: "play reverse play reverse",
           },
         }
       );

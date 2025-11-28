@@ -55,6 +55,7 @@ export default function Skills() {
             scrollTrigger: {
               trigger: el,
               start: "top 80%",
+              toggleActions: "play reverse play reverse",
             },
           }
         );
