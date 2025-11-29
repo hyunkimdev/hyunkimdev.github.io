@@ -97,12 +97,12 @@ export default function About() {
         <div className={styles.textColumn} ref={textRef}>
           <h2 className={styles.title}>소개</h2>
           <Paragraph>
-            5년 전, 웹이 작동하는 방식에 대한 호기심으로 개발을 시작했습니다.
-            단순한 HTML 페이지에서 시작해, 이제는 전 세계 클라이언트를 위한 복잡하고 확장 가능한 웹 애플리케이션을 구축하고 있습니다.
+          사용자 중심 설계와 브랜드 경험을 고려한 개발을 핵심 가치로 삼고 있습니다.
+          사내 시스템부터 웹·모바일 서비스까지 안정적인 아키텍처로 구축하며 실제 운영 환경에 맞는 결과물을 제공합니다.
           </Paragraph>
           <Paragraph>
-            저는 클린 코드, 사용자 중심 디자인, 그리고 브라우저의 한계를 뛰어넘는 것을 지향합니다.
-            코딩하지 않을 때는 오픈 소스에 기여하거나 최신 기술 트렌드를 탐구하곤 합니다.
+          데이터 분석·대시보드 구축을 통해 비즈니스 의사결정을 지원하고, AI·자동화 기반 생산성 개선에도 관심이 많습니다.
+          기술과 브랜딩이 모두 살아 있는 웹 경험을 만드는 것이 목표입니다.
           </Paragraph>
         </div>
         <div className={styles.imageColumn} ref={imageRef}>
