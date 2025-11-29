@@ -17,11 +17,14 @@
 }
 
 .card {
+    display: block;
     background: var(--secondary);
     border-radius: var(--radius-lg);
     overflow: hidden;
     border: 1px solid var(--border);
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+    text-decoration: none;
+    height: 100%;
 }
 
 .card:hover {
@@ -70,22 +73,4 @@
     background: rgba(59, 130, 246, 0.1);
     color: var(--primary);
     border-radius: var(--radius-full);
-}
-
-.links {
-    display: flex;
-    gap: var(--spacing-md);
-}
-
-.link {
-    font-size: 0.9rem;
-    font-weight: 500;
-    color: var(--foreground);
-    border-bottom: 1px solid transparent;
-    transition: border-color 0.2s ease;
-}
-
-.link:hover {
-    border-color: var(--primary);
-    color: var(--primary);
 }

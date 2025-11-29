@@ -64,8 +64,11 @@ export default function Projects() {
         <h2 className={styles.title}>주요 프로젝트</h2>
         <div className={styles.grid}>
           {projects.map((project, index) => (
-            <div 
+            <a 
               key={index} 
+              href={project.demoLink}
+              target="_blank"
+              rel="noopener noreferrer"
               className={styles.card}
               ref={(el) => {
                 if (el) cardsRef.current[index] = el;
@@ -82,12 +85,8 @@ export default function Projects() {
                     <span key={tag} className={styles.tag}>{tag}</span>
                   ))}
                 </div>
-                <div className={styles.links}>
-                  <Link href={project.demoLink} className={styles.link}>라이브 데모</Link>
-                  <Link href={project.repoLink} className={styles.link}>GitHub</Link>
-                </div>
               </div>
-            </div>
+            </a>
           ))}
         </div>
       </div>
