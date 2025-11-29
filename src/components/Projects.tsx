@@ -15,7 +15,7 @@ const projects = [
     tags: ["Next.js", "React", "Tailwind CSS", "Vercel"],
     demoLink: "https://meal-ordering-system.vercel.app/",
     repoLink: "#",
-    image: "/Screenshot 2025-11-28 at 3.37.13 PM.png",
+    image: "/project-richtable.png",
   },
   {
     title: "어서오SEO (Welcome SEO)",
@@ -23,7 +23,7 @@ const projects = [
     tags: ["Next.js", "OpenAI API", "SerpAPI", "Naver DataLab"],
     demoLink: "https://welcome-seo.vercel.app/",
     repoLink: "#",
-    image: "/Screenshot 2025-11-28 at 3.36.31 PM.png",
+    image: "/project-seo.png",
   },
   {
     title: "협업 관리 도구",
