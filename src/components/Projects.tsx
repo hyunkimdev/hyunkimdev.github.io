@@ -14,7 +14,6 @@ const projects = [
     description: "사용자 친화적인 음식 주문 시스템입니다. 로그인/회원가입 기능과 직관적인 메뉴 탐색 및 주문 흐름을 제공합니다.",
     tags: ["Next.js", "React", "Tailwind CSS", "Vercel"],
     demoLink: "https://meal-ordering-system.vercel.app/",
-    repoLink: "#",
     image: "/project-richtable.png",
   },
   {
@@ -22,16 +21,7 @@ const projects = [
     description: "지역 기반 비즈니스를 위한 키워드 SEO 분석 도구입니다. 네이버 데이터랩과 SerpAPI를 활용하여 트렌드를 분석하고 OpenAI로 콘텐츠 전략을 제안합니다.",
     tags: ["Next.js", "OpenAI API", "SerpAPI", "Naver DataLab"],
     demoLink: "https://welcome-seo.vercel.app/",
-    repoLink: "#",
     image: "/project-seo.png",
-  },
-  {
-    title: "협업 관리 도구",
-    description: "드래그 앤 드롭 칸반 보드와 팀 채팅 기능을 제공하는 프로젝트 관리 툴입니다.",
-    tags: ["React", "Socket.io", "Node.js", "MongoDB"],
-    demoLink: "#",
-    repoLink: "#",
-    image: null,
   },
 ];
 
