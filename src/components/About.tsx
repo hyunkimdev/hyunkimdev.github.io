@@ -102,7 +102,7 @@ export default function About() {
           </Paragraph>
           <Paragraph>
           데이터 분석·대시보드 구축을 통해 비즈니스 의사결정을 지원하고, AI·자동화 기반 생산성 개선에도 관심이 많습니다.
-          기술과 브랜딩이 모두 살아 있는 웹 경험을 만드는 것이 목표입니다.
+          기술과 브랜딩이 모두 살아 있는 웹 경험을 만드는 것이 목표입니다
           </Paragraph>
         </div>
         <div className={styles.imageColumn} ref={imageRef}>

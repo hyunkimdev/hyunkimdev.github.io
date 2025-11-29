@@ -21,7 +21,7 @@ const projects = [
     title: "어서오SEO (Welcome SEO)",
     description: "지역 기반 비즈니스를 위한 키워드 SEO 분석 도구입니다. 네이버 데이터랩과 SerpAPI를 활용하여 트렌드를 분석하고 OpenAI로 콘텐츠 전략을 제안합니다.",
     tags: ["Next.js", "OpenAI API", "SerpAPI", "Naver DataLab"],
-    demoLink: "https://welcome-seo-bvsw.vercel.app/",
+    demoLink: "https://welcome-seo.vercel.app/",
     repoLink: "#",
     image: "/Screenshot 2025-11-28 at 3.36.31 PM.png",
   },
@@ -37,7 +37,7 @@ const projects = [
 
 export default function Projects() {
   const sectionRef = useRef(null);
-  const cardsRef = useRef<HTMLDivElement[]>([]);
+  const cardsRef = useRef<HTMLAnchorElement[]>([]);
 
   useEffect(() => {
     const ctx = gsap.context(() => {
