@@ -49,7 +49,7 @@ export default function Header() {
     <header ref={headerRef} className={styles.header}>
       <div className={`container ${styles.nav}`}>
         <Link href="/" className={styles.logo}>
-          DEV.PORTFOLIO
+          hyunkimdev
         </Link>
         <nav className={styles.links}>
           <Link href="#about" className={styles.link}>
