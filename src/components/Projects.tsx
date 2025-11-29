@@ -1,6 +1,6 @@
 "use client";
 
-import Link from "next/link";
+import Image from "next/image";
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -15,6 +15,7 @@ const projects = [
     tags: ["Next.js", "React", "Tailwind CSS", "Vercel"],
     demoLink: "https://meal-ordering-system.vercel.app/",
     repoLink: "#",
+    image: "/Screenshot 2025-11-28 at 3.37.13 PM.png",
   },
   {
     title: "어서오SEO (Welcome SEO)",
@@ -22,6 +23,7 @@ const projects = [
     tags: ["Next.js", "OpenAI API", "SerpAPI", "Naver DataLab"],
     demoLink: "https://welcome-seo-bvsw.vercel.app/",
     repoLink: "#",
+    image: "/Screenshot 2025-11-28 at 3.36.31 PM.png",
   },
   {
     title: "협업 관리 도구",
@@ -29,6 +31,7 @@ const projects = [
     tags: ["React", "Socket.io", "Node.js", "MongoDB"],
     demoLink: "#",
     repoLink: "#",
+    image: null,
   },
 ];
 
@@ -74,9 +77,21 @@ export default function Projects() {
                 if (el) cardsRef.current[index] = el;
               }}
             >
-              <div className={styles.imagePlaceholder}>
-                [프로젝트 이미지]
-              </div>
+              {project.image ? (
+                <div className={styles.imageWrapper}>
+                  <Image
+                    src={project.image}
+                    alt={project.title}
+                    width={600}
+                    height={400}
+                    className={styles.projectImage}
+                  />
+                </div>
+              ) : (
+                <div className={styles.imagePlaceholder}>
+                  [프로젝트 이미지]
+                </div>
+              )}
               <div className={styles.content}>
                 <h3 className={styles.projectTitle}>{project.title}</h3>
                 <p className={styles.description}>{project.description}</p>
