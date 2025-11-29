@@ -1,6 +1,5 @@
 "use client";
 
-import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -112,12 +111,12 @@ export default function Hero() {
           비즈니스 아이디어를 현실로 만들어드립니다.
         </p>
         <div className={styles.actions}>
-          <Link href="#projects" className={`${styles.button} ${styles.primary}`}>
+          <a href="#projects" className={`${styles.button} ${styles.primary}`}>
             프로젝트 보기
-          </Link>
-          <Link href="#contact" className={`${styles.button} ${styles.secondary}`}>
+          </a>
+          <a href="#contact" className={`${styles.button} ${styles.secondary}`}>
             문의하기
-          </Link>
+          </a>
         </div>
       </div>
     </section>
